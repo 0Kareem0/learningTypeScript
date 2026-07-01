@@ -1,6 +1,6 @@
 export default function App() {
   console.log(Math.floor(10.22));
-  console.log("day 2 of learning typeScript");
+  console.log("learning about types from the docs");
   
   return (
     <div className="flex justify-center items-center h-screen">
