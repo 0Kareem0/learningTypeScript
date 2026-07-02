@@ -1,6 +1,6 @@
 export default function App() {
   console.log(Math.floor(10.22));
-  console.log("reading about noImplicitAny in the docs");
+  console.log("now learning about function in ts");
   
   return (
     <div className="flex justify-center items-center h-screen">
