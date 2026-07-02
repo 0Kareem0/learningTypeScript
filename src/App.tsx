@@ -1,6 +1,6 @@
 export default function App() {
   console.log(Math.floor(10.22));
-  console.log("Parameter Type Annotations");
+  console.log("Anonymous Functions");
   
   return (
     <div className="flex justify-center items-center h-screen">
