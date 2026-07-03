@@ -1,6 +1,8 @@
+
 export default function App() {
   console.log(Math.floor(10.22));
   console.log("void and never ✅");
+  console.log("gotta hit the gym coming back");
   
   return (
     <div className="flex justify-center items-center h-screen">
