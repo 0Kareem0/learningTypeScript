@@ -1,7 +1,7 @@
 
 export default function App() {
   console.log(Math.floor(10.22));
-  console.log("Chapter 7: Array");  
+  console.log("Type Annotations With Arrays ✅");
   return (
     <div className="flex justify-center items-center h-screen">
       <h1 className="text-3xl font-bold underline text-white">
