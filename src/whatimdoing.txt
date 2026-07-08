@@ -66,6 +66,7 @@ const user2: User = {
 };
 
 function printUser(user: User) {
+
     console.log(user);
 }
 
@@ -73,3 +74,34 @@ printUser(user);
 printUser(user2);
 printUser(admin);
 
+// REOPEN THE INTERFACE AND USE CASES *
+
+// Homepage Interface Declaration
+interface Settings {
+  readonly theme: boolean;
+  font: string;
+}
+
+// Articles Page Interface Reopening
+interface Settings {
+  sidebar: boolean;
+}
+
+// Contact Page Interface Reopening
+interface Settings {
+  external: boolean;
+}       
+
+// Create an object 'userSettings' that adheres to the merged 'Settings' interface
+let userSettings: Settings = {
+  theme: true,
+  font: "Open Sans",    
+  sidebar: false,
+  external: true,
+};
+console.log(userSettings);
+
+// use cases 
+// 1. modular development
+// 2. progressive enhancement
+// 3. clear separation of concerns
