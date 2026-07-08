@@ -1,0 +1,75 @@
+/////////// Tuples ///////////
+let article: readonly [string, number, boolean] = ["Hello", 1, true];
+console.log(article);
+
+article = ["World", 2, false];
+
+console.log(article);
+
+
+const [title, views, isPublished] = article;
+console.log(title);
+console.log(views);
+console.log(isPublished);
+//////  Enums ////////
+console.log("#########".repeat(10));
+
+enum days {
+    sunday,
+    monday,
+    tuesday,
+    wednesday,
+    thursday,
+    friday,
+    saturday
+};
+
+const today: days = days.sunday;
+console.log(`today is ${days[today]}`);
+/////// interface ///////////
+console.log("#########".repeat(10));
+
+
+interface User {
+    readonly id: number;
+    name: string;
+    age: number;
+    isAdmin: boolean;
+    role?: string;
+}
+
+interface Admin extends User {
+    permissions: string[];
+}
+
+const admin: Admin = {
+    id: 3,
+    name: "Bob",
+    age: 30,
+    isAdmin: true,
+    permissions: ["delete", "edit"]
+};
+
+const user: User = {
+    id: 1,
+    name: "Kareem",
+    age: 20,
+    isAdmin: true,
+    role: "admin"
+};
+
+const user2: User = {
+    id: 2,
+    name: "Jane",
+    age: 25,
+    isAdmin: false
+};
+
+function printUser(user: User) {
+    console.log(user);
+}
+
+printUser(user);
+printUser(user2);
+printUser(admin);
+
