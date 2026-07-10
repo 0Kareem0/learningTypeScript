@@ -1,7 +1,7 @@
 
 export default function App() {
   console.log(Math.floor(10.22));
-  console.log("Class Accessors ✅");
+  console.log("thats is for today not much but at least something");
   return (
     <div className="flex justify-center items-center h-screen">
       <h1 className="text-3xl font-bold underline text-white">
