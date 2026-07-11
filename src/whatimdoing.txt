@@ -1,307 +1,340 @@
-/////////// Tuples ///////////
-let article: readonly [string, number, boolean] = ["Hello", 1, true];
-console.log(article);
-
-article = ["World", 2, false];
-
-console.log(article);
-
-
-const [title, views, isPublished] = article;
-console.log(title);
-console.log(views);
-console.log(isPublished);
-//////  Enums ////////
-console.log("#########".repeat(10));
-
-enum days {
-    sunday,
-    monday,
-    tuesday,
-    wednesday,
-    thursday,
-    friday,
-    saturday
-};
-
-const today: days = days.sunday;
-console.log(`today is ${days[today]}`);
-/////// interface ///////////
-console.log("#########".repeat(10));
-
-
-interface User {
-    readonly id: number;
-    name: string;
-    age: number;
-    isAdmin: boolean;
-    role?: string;
-}
-
-interface Admin extends User {
-    permissions: string[];
-}
-
-const admin: Admin = {
-    id: 3,
-    name: "Bob",
-    age: 30,
-    isAdmin: true,
-    permissions: ["delete", "edit"]
-};
-
-const user: User = {
-    id: 1,
-    name: "Kareem",
-    age: 20,
-    isAdmin: true,
-    role: "admin"
-};
-
-const user2: User = {
-    id: 2,
-    name: "Jane",
-    age: 25,
-    isAdmin: false
-};
-
-function printUser(user: User) {
-
-    console.log(user);
-}
-
-printUser(user);
-printUser(user2);
-printUser(admin);
-
-// REOPEN THE INTERFACE AND USE CASES *
-
-// Homepage Interface Declaration
-interface Settings {
-  readonly theme: boolean;
-  font: string;
-}
-
-// Articles Page Interface Reopening
-interface Settings {
-  sidebar: boolean;
-}
-
-// Contact Page Interface Reopening
-interface Settings {
-  external: boolean;
-}       
-
-// Create an object 'userSettings' that adheres to the merged 'Settings' interface
-let userSettings: Settings = {
-  theme: true,
-  font: "Open Sans",    
-  sidebar: false,
-  external: true,
-};
-console.log(userSettings);
-
-// use cases 
-// 1. modular development
-// 2. progressive enhancement
-// 3. clear separation of concerns
-
-/******************************
- * INTERFACE VS. TYPE ALIASES *
- ******************************/
-
-// Declaration Syntax:
-
-// Interface
-interface PersonExInterface {
-  name: string;
-  age: number;
-}
-
-// Type
-type PersonExType = {
-  name: string;
-  age: number;
-};
+// // // // /////////// Tuples ///////////
+// // // // let article: readonly [string, number, boolean] = ["Hello", 1, true];
+// // // // console.log(article);
+
+// // // // article = ["World", 2, false];
+
+// // // // console.log(article);
+
+
+// // // // const [title, views, isPublished] = article;
+// // // // console.log(title);
+// // // // console.log(views);
+// // // // console.log(isPublished);
+// // // // //////  Enums ////////
+// // // // console.log("#########".repeat(10));
+
+// // // // enum days {
+// // // //     sunday,
+// // // //     monday,
+// // // //     tuesday,
+// // // //     wednesday,
+// // // //     thursday,
+// // // //     friday,
+// // // //     saturday
+// // // // };
+
+// // // // const today: days = days.sunday;
+// // // // console.log(`today is ${days[today]}`);
+// // // // /////// interface ///////////
+// // // // console.log("#########".repeat(10));
+
+
+// // // // interface User {
+// // // //     readonly id: number;
+// // // //     name: string;
+// // // //     age: number;
+// // // //     isAdmin: boolean;
+// // // //     role?: string;
+// // // // }
+
+// // // // interface Admin extends User {
+// // // //     permissions: string[];
+// // // // }
+
+// // // // const admin: Admin = {
+// // // //     id: 3,
+// // // //     name: "Bob",
+// // // //     age: 30,
+// // // //     isAdmin: true,
+// // // //     permissions: ["delete", "edit"]
+// // // // };
+
+// // // // const user: User = {
+// // // //     id: 1,
+// // // //     name: "Kareem",
+// // // //     age: 20,
+// // // //     isAdmin: true,
+// // // //     role: "admin"
+// // // // };
+
+// // // // const user2: User = {
+// // // //     id: 2,
+// // // //     name: "Jane",
+// // // //     age: 25,
+// // // //     isAdmin: false
+// // // // };
+
+// // // // function printUser(user: User) {
+
+// // // //     console.log(user);
+// // // // }
+
+// // // // printUser(user);
+// // // // printUser(user2);
+// // // // printUser(admin);
+
+// // // // // REOPEN THE INTERFACE AND USE CASES *
+
+// // // // // Homepage Interface Declaration
+// // // // interface Settings {
+// // // //   readonly theme: boolean;
+// // // //   font: string;
+// // // // }
+
+// // // // // Articles Page Interface Reopening
+// // // // interface Settings {
+// // // //   sidebar: boolean;
+// // // // }
+
+// // // // // Contact Page Interface Reopening
+// // // // interface Settings {
+// // // //   external: boolean;
+// // // // }       
+
+// // // // // Create an object 'userSettings' that adheres to the merged 'Settings' interface
+// // // // let userSettings: Settings = {
+// // // //   theme: true,
+// // // //   font: "Open Sans",    
+// // // //   sidebar: false,
+// // // //   external: true,
+// // // // };
+// // // // console.log(userSettings);
+
+// // // // // use cases 
+// // // // // 1. modular development
+// // // // // 2. progressive enhancement
+// // // // // 3. clear separation of concerns
+
+// // // // // INTERFACE VS. TYPE ALIASES *
+
+// // // // // Declaration Syntax:
+
+// // // // // Interface
+// // // // interface PersonExInterface {
+// // // //   name: string;
+// // // //   age: number;
+// // // // }
+
+// // // // // Type
+// // // // type PersonExType = {
+// // // //   name: string;
+// // // //   age: number;
+// // // // };
+
+// // // // // Extending And Implementing:
+
+// // // // // Interface
+// // // // interface AnimalExInterface {
+// // // //   type: string;
+// // // // }
+
+// // // // interface Dog extends AnimalExInterface {
+// // // //   bark(): void;
+// // // // }
+
+// // // // class Labrador implements Dog {
+// // // //   type: string = "dog";
+// // // //   bark() {
+// // // //     console.log("Woof!");
+// // // //   }
+// // // // }
+
+// // // // // Type
+// // // // type AnimalExType = {
+// // // //   type: string;
+// // // // };
+
+// // // // type Monkey = AnimalExType & {
+// // // //   bark(): void;
+// // // // };
+
+// // // // const labrador: Monkey = {
+// // // //   type: "monkey",
+// // // //   bark() {
+// // // //     console.log("Woof!");
+// // // //   },
+// // // // };
 
-// Extending And Implementing:
+// // // // // Compatibility:
+// // // // interface Car {
+// // // //   brand: string;
+// // // // }
 
-// Interface
-interface AnimalExInterface {
-  type: string;
-}
+// // // // interface Car {
+// // // //   model: string;
+// // // // }
 
-interface Dog extends AnimalExInterface {
-  bark(): void;
-}
+// // // // const myCar: Car = {
+// // // //   brand: "Toyota",
+// // // //   model: "Camry",
+// // // // };
 
-class Labrador implements Dog {
-  type: string = "dog";
-  bark() {
-    console.log("Woof!");
-  }
-}
 
-// Type
-type AnimalExType = {
-  type: string;
-};
+// // // /**************************
+// // //  * CLASS TYPE ANNOTATIONS *
+// // //  **************************/
 
-type Monkey = AnimalExType & {
-  bark(): void;
-};
+// // // class Product {
+// // //   // Property type annotations
+// // //   id: number;
+// // //   name: string;
+// // //   price: number;
+
+// // //   constructor(id: number, name: string, price: number) {
+// // //     // Constructor parameter type annotations
+// // //     this.id = id;
+// // //     this.name = name;
+// // //     this.price = price;
+// // //   }
+
+// // //   // Method type annotations
+// // //   getProductInfo(): string {
+// // //     return `ID: ${this.id}, Name: ${this.name}, Price: $${this.price}`;
+// // //   }
+// // // }
+
+// // // // Create an instance of the Product class
+// // // const product1 = new Product(1, "Widget", 20.0);
 
-const labrador: Monkey = {
-  type: "monkey",
-  bark() {
-    console.log("Woof!");
-  },
-};
+// // // // Access class properties and call a method
+// // // console.log(product1.getProductInfo()); // Output: ID: 1, Name: Widget, Price: $20
 
-// Compatibility:
-interface Car {
-  brand: string;
-}
+// // /***************************
+// //  * CLASS ACCESS MODIFIERS: *
+// //  ***************************/
 
-interface Car {
-  model: string;
-}
+// // class MyClassPublic {
+// //     public name: string;
 
-const myCar: Car = {
-  brand: "Toyota",
-  model: "Camry",
-};
+// //     constructor(name: string) {
+// //         this.name = name;
+// //     }
+// // }
 
+// // const instancePublic = new MyClassPublic("John");
+// // console.log(instancePublic.name); // Accessing the public property
 
 
-/**************************
- * CLASS TYPE ANNOTATIONS *
- **************************/
+// // class MyClassPrivate {
+// //     private secret: string;
 
-class Product {
-  // Property type annotations
-  id: number;
-  name: string;
-  price: number;
+// //     constructor(secret: string) {
+// //         this.secret = secret;
+// //     }
 
-  constructor(id: number, name: string, price: number) {
-    // Constructor parameter type annotations
-    this.id = id;
-    this.name = name;
-    this.price = price;
-  }
+// //     revealSecret() {
+// //         console.log(this.secret); // Accessing the private property from within the class
+// //     }
+// // }
 
-  // Method type annotations
-  getProductInfo(): string {
-    return `ID: ${this.id}, Name: ${this.name}, Price: $${this.price}`;
-  }
-}
+// // const instancePrivate = new MyClassPrivate("My secret");
+// // // console.log(instance.secret); // This would result in an error because secret is private
+// // instancePrivate.revealSecret(); // This is a valid way to access the private property
 
-// Create an instance of the Product class
-const product1 = new Product(1, "Widget", 20.0);
 
-// Access class properties and call a method
-console.log(product1.getProductInfo()); // Output: ID: 1, Name: Widget, Price: $20
+// // class Parent {
+// //     protected familyName: string;
 
+// //     constructor(name: string) {
+// //         this.familyName = name;
+// //     }
+// // }
 
+// // class Child extends Parent {
+// //     introduceFamily() {
+// //         console.log(`Our family name is ${this.familyName}`);
+// //     }
+// // }
 
+// // const parentEx = new Parent("Smith");
+// // const childEx = new Child("Johnson");
 
-/***************************
- * CLASS ACCESS MODIFIERS: *
- ***************************/
+// // // console.log(parent.familyName); // This would result in an error because familyName is protected
+// // childEx.introduceFamily(); // This is a valid way to access the protected property
 
-class MyClassPublic {
-    public name: string;
 
-    constructor(name: string) {
-        this.name = name;
-    }
-}
 
-const instancePublic = new MyClassPublic("John");
-console.log(instancePublic.name); // Accessing the public property
+// /*******************
+//  * CLASS ACCESSORS *
+//  *******************/
 
+// class ProductExAccessors {
+//   // 'private' property
+//   private _price: number;
 
-class MyClassPrivate {
-    private secret: string;
+//   constructor(private id: number, private name: string) {
+//     this._price = 0; // Default price
+//   }
 
-    constructor(secret: string) {
-        this.secret = secret;
-    }
+//   // 'public' getter for price
+//   get price(): number {
+//     return this._price;
+//   }
 
-    revealSecret() {
-        console.log(this.secret); // Accessing the private property from within the class
-    }
-}
+//   // 'public' setter for price
+//   set price(newPrice: number) {
+//     if (newPrice >= 0) {
+//       this._price = newPrice;
+//     } else {
+//       console.log("Price cannot be negative.");
+//     }
+//   }
 
-const instancePrivate = new MyClassPrivate("My secret");
-// console.log(instance.secret); // This would result in an error because secret is private
-instancePrivate.revealSecret(); // This is a valid way to access the private property
+//   getProductInfo(): string {
+//     return `ID: ${this.id}, Name: ${this.name}, Price: $${this._price}`;
+//   }
+// }
 
+// // Create an instance of the ProductExAccessors class
+// const productEx = new ProductExAccessors(1, "Widget");
 
-class Parent {
-    protected familyName: string;
+// console.log(productEx.getProductInfo()); // Default price: ID: 1, Name: Widget, Price: $0
 
-    constructor(name: string) {
-        this.familyName = name;
-    }
-}
+// // Use the 'setter' to update the price
+// productEx.price = 20.0;
 
-class Child extends Parent {
-    introduceFamily() {
-        console.log(`Our family name is ${this.familyName}`);
-    }
-}
+// console.log(productEx.getProductInfo()); // Updated price: ID: 1, Name: Widget, Price: $20
 
-const parentEx = new Parent("Smith");
-const childEx = new Child("Johnson");
+// // Attempting to set a negative price triggers the setter logic
+// productEx.price = -5; // Price cannot be negative.
 
-// console.log(parent.familyName); // This would result in an error because familyName is protected
-childEx.introduceFamily(); // This is a valid way to access the protected property
 
 
+/************************
+ * CLASS STATIC MEMBERS *
+ ************************/
 
-
-/*******************
- * CLASS ACCESSORS *
- *******************/
-
-class ProductExAccessors {
+class ProductStaticMembers {
   // 'private' property
-  private _price: number;
+  private static nextId: number = 1;
 
-  constructor(private id: number, private name: string) {
-    this._price = 0; // Default price
-  }
+  constructor(private id: number, private name: string) {}
 
-  // 'public' getter for price
-  get price(): number {
-    return this._price;
-  }
-
-  // 'public' setter for price
-  set price(newPrice: number) {
-    if (newPrice >= 0) {
-      this._price = newPrice;
-    } else {
-      console.log("Price cannot be negative.");
-    }
+  static generateNextId(): number {
+    return ProductStaticMembers.nextId++;
   }
 
   getProductInfo(): string {
-    return `ID: ${this.id}, Name: ${this.name}, Price: $${this._price}`;
+    return `ID: ${this.id}, Name: ${this.name}`;
   }
 }
 
-// Create an instance of the ProductExAccessors class
-const productEx = new ProductExAccessors(1, "Widget");
+// Generate unique IDs for products using the static method
+const product1static = new ProductStaticMembers(
+  ProductStaticMembers.generateNextId(),
+  "Widget"
+);
+const product2static = new ProductStaticMembers(
+  ProductStaticMembers.generateNextId(),
+  "Gadget"
+);
 
-console.log(productEx.getProductInfo()); // Default price: ID: 1, Name: Widget, Price: $0
+const product3static = new ProductStaticMembers(
+  ProductStaticMembers.generateNextId(),
+  "Tool"
+);
 
-// Use the 'setter' to update the price
-productEx.price = 20.0;
-
-console.log(productEx.getProductInfo()); // Updated price: ID: 1, Name: Widget, Price: $20
-
-// Attempting to set a negative price triggers the setter logic
-productEx.price = -5; // Price cannot be negative.
+console.log(product1static.getProductInfo()); // ID: 1, Name: Widget
+console.log(product2static.getProductInfo()); // ID: 2, Name: Gadget
+console.log(product3static.getProductInfo()); // ID: 3, Name: Tool
