@@ -1,7 +1,7 @@
 
 export default function App() {
   console.log(Math.floor(10.22));
-  console.log("Done with Classes starting with chapter 12 soon ✅");
+  console.log("im back exhausted but still moving");
   return (
     <div className="flex justify-center items-center h-screen">
       <h1 className="text-3xl font-bold underline text-white">
