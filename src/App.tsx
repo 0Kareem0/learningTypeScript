@@ -1,7 +1,7 @@
 
 export default function App() {
   console.log(Math.floor(10.22));
-  console.log("simple Generic Function");
+  console.log("going to football match gonna comeback and continue");
   function firstFunc<T>(value:T):T{
   return value
 }
