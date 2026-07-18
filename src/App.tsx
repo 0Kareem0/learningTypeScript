@@ -1,7 +1,7 @@
 
 export default function App() {
   console.log(Math.floor(10.22));
-  console.log("Generics Classes ✅");
+  console.log("whatimdoing");
   function firstFunc<T>(value:T):T{
   return value
 }
