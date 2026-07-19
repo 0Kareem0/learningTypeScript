@@ -1,7 +1,7 @@
 
 export default function App() {
   console.log(Math.floor(10.22));
-  console.log("Type Assertions ✅");
+  console.log("last chapter");
   function firstFunc<T>(value:T):T{
   return value
 }
