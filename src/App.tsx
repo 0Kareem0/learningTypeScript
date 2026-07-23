@@ -1,7 +1,7 @@
 import Cards from "./components/Cards"
 import Alert from "./components/Alert"
 export default function App() {
-  console.log("second session ✅");
+  console.log("third session ✅");
   function firstFunc<T>(value:T):T{
   return value
 }
