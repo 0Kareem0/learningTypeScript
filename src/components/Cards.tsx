@@ -12,11 +12,11 @@ const colorMap = {
     blue: "text-blue-500",
     green: "text-green-500"
 }
-
 export default function Cards({ title, description,count,color }: CardsProps & {color: ColorProps}) {
+    const currentColor = colorMap[color]
     return (
         <>
-        <div className={colorMap[color]}>
+        <div className={currentColor}>
             <h1>{title},{description},{count}</h1>    
         </div>
         <div>
