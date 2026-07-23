@@ -6,11 +6,9 @@ export default function App() {
 }
 console.log(firstFunc<number>(100));
   return (
-    <div className="flex justify-center items-center h-screen">
-      <h1 className="text-3xl font-bold underline text-white">
-        Hello world! typeScript incoming
-      </h1>
-      <Cards title={"Hello"} description={"World"} />
+    <div>
+      <Cards title={"Hello"} description={"World"} count={1}/>
+      <Cards title={"Hello Kareem"} description={"The World is Yours"} />
     </div>
   )
 }

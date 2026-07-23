@@ -2,13 +2,13 @@
 interface CardsProps {
     title: string;
     description: string;
+    count?:number
 }
 
-export default function Cards({ title, description }: CardsProps) {
+export default function Cards({ title, description,count }: CardsProps) {
     return (
-        <div className="">
-            <h1 className="text-2xl font-bold text-white">{title}</h1>    
-            <p className="text-2xl font-bold text-white">{description}</p>
+        <div>
+            <h1 className="text-2xl font-bold text-white">{title},{description},{count}</h1>    
         </div>
     )
 }
