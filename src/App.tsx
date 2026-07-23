@@ -10,13 +10,21 @@ export default function App() {
         alert(message)
       }
 
+      const users = [
+        {name:"Kareem", age:25},
+        {name:"Ahmed", age:30},
+        {name:"Mohamed", age:35}
+      ]
+
 console.log(firstFunc<number>(100));
   return (
     <div>
      <Alert alertMessage={alertMessage}/>
-      <Cards title={"Hello"} description={"World"} count={1}/>
-      <Cards title={"Hello Kareem"} description={"The World is Yours"} />
-    
+      <Cards color="red" title={"Hello"} description={"World"} count={1}/>
+      <Cards color="blue" title={"Hello Kareem"} description={"The World is Yours"} />
+      {users.map((user) => (
+        <Cards key={user.name} color="green" title={user.name} description={user.age.toString()} />
+      ))}
     </div>
   )
 }
