@@ -1,6 +1,6 @@
 import Cards from "./components/Cards"
 export default function App() {
-  console.log("learning");
+  console.log("session 1 ✅");
   function firstFunc<T>(value:T):T{
   return value
 }
