@@ -2,10 +2,12 @@ import Cards from "./components/Cards"
 import Alert from "./components/Alert"
 import { useState , useEffect } from "react"
 export default function App() {
-  console.log("third session ✅");
+  console.log("finish for now not much but something ✅");
   function firstFunc<T>(value:T):T{
   return value
 }
+console.log(firstFunc<number>(100));
+
 
 // as const make it readonly 
 const numberAsConst = [1,2,3] as const  // works on objects as well
@@ -46,7 +48,6 @@ const handleEve =(e: React.MouseEvent<HTMLButtonElement, MouseEvent>)=>{
         {name:"Mohamed", age:35}
       ]
 
-console.log(firstFunc<number>(100));
   return (
     <div>
       <button onClick={(e) => {handleEve(e)}}>Click Me</button>
