@@ -11,12 +11,20 @@ type User = {
   age: number;
 }
 
+const handleEve =(e: React.MouseEvent<HTMLButtonElement, MouseEvent>)=>{
+  console.log(e);
+  
+}
+
       const [user, setUser] = useState<User | null>(null)
       const [loading, setLoading] = useState(true)
 
         useEffect(()=>{
-        setUser({name:"Kareem", age:25})
-        setLoading(false)
+        async function fetchData() {
+          await setUser({name:"Kareem", age:25})
+          await setLoading(false)
+        }
+        fetchData()
        },[]) 
 
       function alertMessage(message:string) {
@@ -32,13 +40,14 @@ type User = {
 console.log(firstFunc<number>(100));
   return (
     <div>
+      <button onClick={(e) => {handleEve(e)}}>Click Me</button>
      <Alert alertMessage={alertMessage}/>
       <Cards color="red" title={"Hello"} description={"World"} count={1}/>
       <Cards color="blue" title={"Hello Kareem"} description={"The World is Yours"} />
       {users.map((user) => (
         <Cards key={user.name} color="green" title={user.name} description={user.age.toString()} />
       ))}
-        {!loading && <p>{user?.name}</p>}
+        {!loading && user &&<p>{user.name}</p>}
     </div>
   )
 }
