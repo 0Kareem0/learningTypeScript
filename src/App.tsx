@@ -6,6 +6,15 @@ export default function App() {
   function firstFunc<T>(value:T):T{
   return value
 }
+
+// as const make it readonly 
+const numberAsConst = [1,2,3] as const  // works on objects as well
+// numberAsConst[1]= 1 
+console.log(numberAsConst);
+// it will run despite the error If you want a truly immutable use Object.freeze()
+
+
+
 type User = {
   name: string;
   age: number;
