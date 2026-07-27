@@ -13,7 +13,7 @@ const MyContext = createContext<ContextType | null>(null)
 
  
 export default function App() {
-  console.log("generic with api ✅");
+  console.log("contextType✅");
   // generic func
   function firstFunc<T>(value:T):T{
   return value
