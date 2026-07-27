@@ -1,12 +1,28 @@
 import Cards from "./components/Cards"
 import Alert from "./components/Alert"
 import { useState , useEffect } from "react"
+import useFetch from "./components/useFetch"
 export default function App() {
   console.log("lets start");
+  // generic func
   function firstFunc<T>(value:T):T{
   return value
 }
+
 console.log(firstFunc<number>(100));
+
+type Post = {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+};
+
+const data = useFetch<Post[]>(
+  "https://jsonplaceholder.typicode.com/posts"
+);
+
+console.log(data);
 
 
 // as const make it readonly 
@@ -29,11 +45,11 @@ const handleEve =(e: React.MouseEvent<HTMLButtonElement, MouseEvent>)=>{
 
       const [user, setUser] = useState<User | null>(null)
       const [loading, setLoading] = useState(true)
-
-        useEffect(()=>{
-        async function fetchData() {
-          await setUser({name:"Kareem", age:25})
-          await setLoading(false)
+      
+      useEffect(()=>{
+         function fetchData() {
+           setUser({name:"Kareem", age:25})
+           setLoading(false)
         }
         fetchData()
        },[]) 
@@ -58,6 +74,6 @@ const handleEve =(e: React.MouseEvent<HTMLButtonElement, MouseEvent>)=>{
         <Cards key={user.name} color="green" title={user.name} description={user.age.toString()} />
       ))}
         {!loading && user &&<p>{user.name}</p>}
-    </div>
+        </div>
   )
 }
