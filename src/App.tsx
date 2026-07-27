@@ -1,15 +1,42 @@
 import Cards from "./components/Cards"
 import Alert from "./components/Alert"
-import { useState , useEffect } from "react"
+import { useState , useEffect, createContext, useContext } from "react"
 import useFetch from "./components/useFetch"
+
+type ContextType = {
+  userContext:string,
+  isLoggedIn:boolean,
+  logIn:() => void,
+  logOut:() => void,
+}
+const MyContext = createContext<ContextType | null>(null)
+
+ 
 export default function App() {
   console.log("generic with api ✅");
   // generic func
   function firstFunc<T>(value:T):T{
   return value
 }
-
 console.log(firstFunc<number>(100));
+
+
+
+const [userContext, setUserContext] = useState<string | null>("Kareem")
+const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+
+function logIn (){
+  setIsLoggedIn(true)
+}
+
+function logOut (){
+  setIsLoggedIn(false)
+}
+
+
+
+
 
 type Post = {
   userId: number;
@@ -64,8 +91,13 @@ const handleEve =(e: React.MouseEvent<HTMLButtonElement, MouseEvent>)=>{
         {name:"Mohamed", age:35}
       ]
 
+      const value:ContextType = {userContext, isLoggedIn, logIn, logOut}
   return (
-    <div>
+    <>
+        <MyContext.Provider value = {value}>
+         <ChildComponent />
+        </MyContext.Provider>
+      <div>
       <button onClick={(e) => {handleEve(e)}}>Click Me</button>
      <Alert alertMessage={alertMessage}/>
       <Cards color="red" title={"Hello"} description={"World"} count={1}/>
@@ -75,5 +107,15 @@ const handleEve =(e: React.MouseEvent<HTMLButtonElement, MouseEvent>)=>{
       ))}
         {!loading && user &&<p>{user.name}</p>}
         </div>
+        </>
+  )
+}
+  
+function ChildComponent(){
+  const contextData = useContext(MyContext)
+  return (
+    <>
+    {contextData && JSON.stringify(contextData)}
+    </>
   )
 }
