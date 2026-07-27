@@ -2,7 +2,7 @@ import Cards from "./components/Cards"
 import Alert from "./components/Alert"
 import { useState , useEffect } from "react"
 export default function App() {
-  console.log("finish for now not much but something ✅");
+  console.log("lets start");
   function firstFunc<T>(value:T):T{
   return value
 }
