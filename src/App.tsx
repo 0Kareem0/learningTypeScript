@@ -3,7 +3,7 @@ import Alert from "./components/Alert"
 import { useState , useEffect } from "react"
 import useFetch from "./components/useFetch"
 export default function App() {
-  console.log("lets start");
+  console.log("generic with api ✅");
   // generic func
   function firstFunc<T>(value:T):T{
   return value
