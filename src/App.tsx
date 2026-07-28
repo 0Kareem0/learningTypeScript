@@ -14,7 +14,7 @@ export const MyContext = createContext<ContextType | null>(null)
 
  
 export default function App() {
-  console.log("finished this gonna make a new project soon ✅");
+  console.log("Done ✅");
   // generic func
   function firstFunc<T>(value:T):T{
   return value
