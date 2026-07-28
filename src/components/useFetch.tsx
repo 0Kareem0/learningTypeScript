@@ -1,6 +1,6 @@
 import { useState ,useEffect } from "react";
 
-export default function useFetch<T>(url:string):T | null{
+export default function useFetch<T>(url:string):T | null{    
     const [data, setData] = useState<T | null>(null)
     useEffect(()=>{
         console.log("Effect started");
@@ -13,5 +13,5 @@ export default function useFetch<T>(url:string):T | null{
         }
         fetchData()
     },[url])
-    return data
+    return data 
 }

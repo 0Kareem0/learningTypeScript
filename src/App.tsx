@@ -1,7 +1,8 @@
 import Cards from "./components/Cards"
 import Alert from "./components/Alert"
-import { useState , useEffect, createContext, useContext } from "react"
 import useFetch from "./components/useFetch"
+import ChildComponent from "./components/ChildComponent"
+import { useState , useEffect, createContext} from "react"
 
 type ContextType = {
   userContext:string,
@@ -9,20 +10,25 @@ type ContextType = {
   logIn:() => void,
   logOut:() => void,
 }
-const MyContext = createContext<ContextType | null>(null)
+export const MyContext = createContext<ContextType | null>(null)
 
  
 export default function App() {
-  console.log("contextType✅");
+  console.log("finished this gonna make a new project soon ✅");
   // generic func
   function firstFunc<T>(value:T):T{
   return value
 }
 console.log(firstFunc<number>(100));
 
+  function secondFunc<T>(value:T):T{
+      return value
+  }
+
+    console.log(secondFunc<number>(101));
 
 
-const [userContext, setUserContext] = useState<string | null>("Kareem")
+const [userContext,] = useState<string | null>("Kareem")
 const [isLoggedIn, setIsLoggedIn] = useState(false)
 
 
@@ -89,7 +95,7 @@ const handleEve =(e: React.MouseEvent<HTMLButtonElement, MouseEvent>)=>{
         {name:"Kareem", age:25},
         {name:"Ahmed", age:30},
         {name:"Mohamed", age:35}
-      ]
+      ]  
 
       const value:ContextType = {userContext, isLoggedIn, logIn, logOut}
   return (
@@ -111,11 +117,3 @@ const handleEve =(e: React.MouseEvent<HTMLButtonElement, MouseEvent>)=>{
   )
 }
   
-function ChildComponent(){
-  const contextData = useContext(MyContext)
-  return (
-    <>
-    {contextData && JSON.stringify(contextData)}
-    </>
-  )
-}
